@@ -25,6 +25,15 @@ class TasksService {
 
     await tasksRepository.save(tasks);
   }
+
+  async find(){
+    const tasksRepository =  getCustomRepository(TasksRepository);
+    
+    const tasks = await tasksRepository.find();
+
+    return tasks;
+
+  }
 }
 
 export { TasksService };

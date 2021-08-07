@@ -9,7 +9,20 @@ class TasksController {
 
     const tasksService = new TasksService();
 
-    const tasks = await tasksService.create({description, done});
+    try {
+      
+      const tasks = await tasksService.create({description, done});
+      return res.json(tasks);
+
+    } catch (err) {
+      return res.status(400).send.json({message: err.message});
+    }
+  }
+
+  async find(req: Request, res: Response){
+
+    const tasksService = new TasksService();
+    const tasks = await tasksService.find();
 
     return res.json(tasks);
   }

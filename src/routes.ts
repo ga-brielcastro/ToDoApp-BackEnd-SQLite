@@ -5,7 +5,7 @@ const routes = Router();
 
 const tasksController = new TasksController();
 
-routes.get('/', (req, res) => {});
+routes.get('/', tasksController.find);
 
 routes.post('/', tasksController.create);
 
